@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="junit5" />
         <module name="testNG" />
+        <module name="demoqa" />
         <module name="startBrowser" />
         <module name="Experiment" />
       </profile>
