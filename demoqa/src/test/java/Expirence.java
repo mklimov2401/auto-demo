@@ -7,6 +7,6 @@ public class Expirence {
     @Test
     public void testOwner(){
         GeneralConfig cfg = ConfigFactory.create(GeneralConfig.class);
-        System.out.println(cfg.xxx());
+        System.out.println(cfg.hostname() + " " +  cfg.env());
     }
 }

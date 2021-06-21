@@ -5,10 +5,11 @@ import org.aeonbits.owner.Config;
 /**
  * Интерфейс содержащий главные настройки фраймворка.
  */
+@Config.Sources("file:src/main/resources/GeneralConfig.properties")
 public interface GeneralConfig extends Config {
-    int port();
+    @DefaultValue("prod")
+    String env();
+
+    @Key("prod.hostname")
     String hostname();
-    @DefaultValue("42")
-    int maxThreads();
-    String xxx();
 }
