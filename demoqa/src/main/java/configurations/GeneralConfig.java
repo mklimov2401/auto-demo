@@ -12,4 +12,7 @@ public interface GeneralConfig extends Config {
 
     @Key("prod.hostname")
     String hostname();
+
+    @DefaultValue("chrome")
+    String browser();
 }

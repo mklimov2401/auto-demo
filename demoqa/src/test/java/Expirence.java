@@ -1,12 +1,10 @@
 import configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class Expirence  extends  ChromeTestBase{
+public class Expirence  extends  TestCaseBase{
 
     @Test
     public void testOwner(){
