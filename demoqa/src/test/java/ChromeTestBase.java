@@ -1,3 +1,4 @@
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,6 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Базовый класс для настройки тестов в Хроме.
  */
 public class ChromeTestBase extends TestCaseBase {
+
+    /*
+    Переменная логгирования.
+     */
+    protected static final Logger logger = Logger.getLogger(ChromeTestBase.class);
 
     @BeforeEach
     public void setUp(){
