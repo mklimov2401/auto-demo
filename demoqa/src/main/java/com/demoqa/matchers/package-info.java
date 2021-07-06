@@ -1,4 +1,4 @@
 /**
  * Пакедж содержащий матчеры.
  */
-package matchers;
+package com.demoqa.matchers;

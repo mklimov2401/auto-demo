@@ -1,4 +1,4 @@
 /**
  * Пакедж который содержит Page Object
  */
-package pageObjects;
+package com.demoqa.pageObjects;

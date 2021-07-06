@@ -1,6 +1,6 @@
 package com.demoqa;
 
-import configurations.GeneralConfig;
+import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
 

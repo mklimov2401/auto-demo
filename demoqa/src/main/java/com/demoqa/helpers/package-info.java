@@ -1,4 +1,4 @@
 /**
  * Пакедж содержащий классы помощники для работы автотестов.
  */
-package helpers;
+package com.demoqa.helpers;

@@ -6,4 +6,4 @@
  * cfg.hostname();
  *
  */
-package configurations;
+package com.demoqa.configurations;
