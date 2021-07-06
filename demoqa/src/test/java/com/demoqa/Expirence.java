@@ -1,10 +1,12 @@
+package com.demoqa;
+
 import configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class Expirence  extends  TestCaseBase{
+public class Expirence  extends TestCaseBase {
 
     @Test
     public void testOwner(){

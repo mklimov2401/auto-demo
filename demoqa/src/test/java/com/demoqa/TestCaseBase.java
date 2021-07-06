@@ -1,3 +1,5 @@
+package com.demoqa;
+
 import configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
