@@ -15,4 +15,6 @@ public interface GeneralConfig extends Config {
 
     @DefaultValue("chrome")
     String browser();
+
+    int secWait();
 }

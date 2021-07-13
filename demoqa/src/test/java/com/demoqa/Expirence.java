@@ -19,6 +19,6 @@ public class Expirence  extends TestCaseBase {
 
     @Test
     public void testBrowser(){
-        driver.navigate().to(getConfig().hostname());
+        getDriver().navigate().to(getConfig().hostname());
     }
 }

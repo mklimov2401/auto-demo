@@ -17,7 +17,7 @@ public class TestCaseBase {
     /*
     Переменная вебдрайвера.
      */
-    protected WebDriver driver;
+    private WebDriver driver;
     /*
     Переменная основной конфигурации.
      */
@@ -39,14 +39,14 @@ public class TestCaseBase {
             case "yandex":
                 ChromeOptions options = new ChromeOptions();
                 options.setBinary("C:\\Users\\PC\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
-                driver = new ChromeDriver(options);
+                setDriver(new ChromeDriver(options));
                 logger.info("Инициализировали браузер Yandex");
                 break;
             default:
-                driver = new ChromeDriver();
+                setDriver(new ChromeDriver());
                 logger.info("Инициализировали браузер Chrome");
         }
-        driver.manage().window().maximize();
+        getDriver().manage().window().maximize();
     }
 
     /**
@@ -55,8 +55,8 @@ public class TestCaseBase {
      */
     @AfterEach
     public void close(){
-        if (driver != null) {
-            driver.quit();
+        if (getDriver() != null) {
+            getDriver().quit();
             logger.info("Закрываем браузер");
         }
     }
@@ -76,5 +76,21 @@ public class TestCaseBase {
      */
     public void setConfig(GeneralConfig config) {
         this.config = config;
+    }
+
+    /**
+     * Отдаем драйвер.
+     * @return
+     */
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    /**
+     * Принимаем драйвер.
+     * @param driver
+     */
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
     }
 }
