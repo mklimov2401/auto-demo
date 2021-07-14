@@ -17,4 +17,6 @@ public interface GeneralConfig extends Config {
     String browser();
 
     int secWait();
+
+    String pathChrome();
 }

@@ -43,6 +43,7 @@ public class TestCaseBase {
                 logger.info("Инициализировали браузер Yandex");
                 break;
             default:
+                System.setProperty("webdriver.chrome.driver", getConfig().pathChrome());
                 setDriver(new ChromeDriver());
                 logger.info("Инициализировали браузер Chrome");
         }
