@@ -17,5 +17,15 @@ public class BasicTest extends Base {
         checkingDisplayBlocks();
     }
 
+    /**
+     * ТК2: Проверка отображение блока Elements
+     */
+    @Test
+    public void displayingBlockElements() {
+        openBlockElements();
+        checkingBlocksElements();
+        checkingOtherBlocks();
+    }
+
 
 }

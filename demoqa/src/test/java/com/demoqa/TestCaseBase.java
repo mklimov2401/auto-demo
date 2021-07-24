@@ -3,11 +3,19 @@ package com.demoqa;
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
+import org.apache.maven.surefire.shade.org.apache.maven.shared.utils.io.FileUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  * Класс для инициализации драйвера и общих компонентов.
@@ -56,6 +64,7 @@ public class TestCaseBase {
      */
     @AfterEach
     public void close(){
+        takeScreenshot();
         if (getDriver() != null) {
             getDriver().quit();
             logger.info("Закрываем браузер");
@@ -93,5 +102,21 @@ public class TestCaseBase {
      */
     public void setDriver(WebDriver driver) {
         this.driver = driver;
+    }
+
+    /**
+     * Делаем скриншот страницы.
+     */
+    public void takeScreenshot(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH.mm.ss");
+        File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            String nameFile = getClass().getSimpleName() + " - " + dateFormat.format(timestamp) + ".png";
+            FileUtils.copyFile(src, new File("src/main/resources/tmp/screenshot/" + nameFile));
+            logger.info("Сделали скриншот экрана.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

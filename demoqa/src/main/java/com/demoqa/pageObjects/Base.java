@@ -1,5 +1,7 @@
 package com.demoqa.pageObjects;
 
+import com.demoqa.configurations.GeneralConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -12,6 +14,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Base {
 
     private WebDriver driver;
+    /*
+    Переменная основной конфигурации.
+     */
+    protected GeneralConfig config = ConfigFactory.create(GeneralConfig.class);
+    /*
+    Время ожидания элемента.
+     */
+    int sec = config.secWait();
 
     public Base(final WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -39,5 +49,31 @@ public class Base {
 
         }
         return false;
+    }
+
+    /**
+     * Ждём пока элемент будет кликабелен.
+     * Возвращаем Boolean.
+     *
+     * @param element
+     * @return
+     */
+    protected Boolean waitToBeClickable(final WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, sec);
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+
+    /**
+     * Проверка что текст в элементе совпадает с переданным текстом.
+     * @return true/false
+     */
+    public Boolean checkText(WebElement webElement, String text){
+        return webElement.getText().equalsIgnoreCase(text);
     }
 }

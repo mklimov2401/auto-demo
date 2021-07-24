@@ -7,7 +7,20 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class Assert {
 
-    public static void assertTrue(Boolean b){
-        assertThat(b).isTrue();
+    /**
+     * Проверяем что булевое значение true.
+     * @param value
+     */
+    public static void assertTrue(Boolean value){
+        assertThat(value).isTrue();
+    }
+
+    /**
+     * Проверяем равно ли actual и expected.
+     * @param actual актуальное значение.
+     * @param expected ожидаемое значение.
+     */
+    public static void assertEquals(String actual, String expected){
+        assertThat(actual).isEqualTo(expected);
     }
 }
