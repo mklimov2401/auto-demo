@@ -2,11 +2,15 @@ package com.demoqa.pageObjects;
 
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MenuPage extends Base{
+public class MenuPage extends Base{/*
+    Переменная логгирования.
+     */
+    protected static final Logger logger = Logger.getLogger(MenuPage.class);
 
     /*
     Переменная основной конфигурации.
@@ -60,6 +64,9 @@ public class MenuPage extends Base{
     @FindBy(xpath = ".//div[@class='header-text' and text()='Elements']")
     private WebElement elements;
 
+    @FindBy(xpath = "(.//div[@class='card-up'])[1]")
+    private WebElement elementsBlock;
+
     @FindBy(xpath = ".//div[@class='header-text' and text()='Forms']")
     private WebElement forms;
 
@@ -75,11 +82,13 @@ public class MenuPage extends Base{
     @FindBy(xpath = ".//div[@class='header-text' and text()='Book Store Application']")
     private WebElement book;
 
+
     /**
      * Проверяем что блок меню есть.
      * @return true/false
      */
     public Boolean visibleElements(){
+        logger.info("Проверяем что элемент elements есть на странице.");
         return waitVisibilityOfElement(elements, sec);
     }
 
@@ -88,6 +97,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleForms(){
+        logger.info("Проверяем что элемент forms есть на странице.");
         return waitVisibilityOfElement(forms, sec);
     }
 
@@ -96,6 +106,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleAlerts(){
+        logger.info("Проверяем что элемент alerts есть на странице.");
         return waitVisibilityOfElement(alerts, sec);
     }
 
@@ -104,6 +115,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleWidgets(){
+        logger.info("Проверяем что элемент widgets есть на странице.");
         return waitVisibilityOfElement(widgets, sec);
     }
 
@@ -112,6 +124,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleInteractions(){
+        logger.info("Проверяем что элемент interactions есть на странице.");
         return waitVisibilityOfElement(interactions, sec);
     }
 
@@ -120,6 +133,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleBook(){
+        logger.info("Проверяем что элемент book есть на странице.");
         return waitVisibilityOfElement(book, sec);
     }
 
@@ -130,6 +144,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleTextBox(){
+        logger.info("Проверяем что элемент textBox есть на странице.");
         return waitToBeClickable(textBox);
     }
 
@@ -138,6 +153,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleCheckBox(){
+        logger.info("Проверяем что элемент checkBox есть на странице.");
         return waitToBeClickable(checkBox);
     }
 
@@ -146,6 +162,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleRadioButton(){
+        logger.info("Проверяем что элемент radioButton есть на странице.");
         return waitToBeClickable(radioButton);
     }
 
@@ -154,6 +171,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleWebTables(){
+        logger.info("Проверяем что элемент webTables есть на странице.");
         return waitToBeClickable(webTables);
     }
 
@@ -162,6 +180,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleButtons(){
+        logger.info("Проверяем что элемент buttons есть на странице.");
         return waitToBeClickable(buttons);
     }
 
@@ -170,6 +189,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleLinks(){
+        logger.info("Проверяем что элемент links есть на странице.");
         return waitToBeClickable(links);
     }
 
@@ -178,6 +198,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleBrokenLinksImages(){
+        logger.info("Проверяем что элемент brokenLinksImages есть на странице.");
         return waitToBeClickable(brokenLinksImages);
     }
 
@@ -186,6 +207,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleUploadAndDownload(){
+        logger.info("Проверяем что элемент uploadAndDownload есть на странице.");
         return waitToBeClickable(uploadAndDownload);
     }
 
@@ -194,6 +216,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleDynamicProperties(){
+        logger.info("Проверяем что элемент dynamicProperties есть на странице.");
         return waitToBeClickable(dynamicProperties);
     }
 
@@ -202,6 +225,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleElementListShow(){
+        logger.info("Проверяем что элемент elementListShow есть на странице.");
         return waitVisibilityOfElement(elementListShow, sec);
     }
 
@@ -210,6 +234,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleHeader(){
+        logger.info("Проверяем что элемент Elements есть на странице.");
         return waitVisibilityOfElement(header, sec);
     }
 
@@ -218,7 +243,17 @@ public class MenuPage extends Base{
      * @return текст элемента.
      */
     public String getHeaderText(){
+        logger.info("Возвращаем текс элемента header.");
         return header.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента textBox.
+     * @return текст элемента.
+     */
+    public String getTextBoxText(){
+        logger.info("Возвращаем текс элемента textBox.");
+        return textBox.getText();
     }
 
     /**
@@ -226,6 +261,7 @@ public class MenuPage extends Base{
      * @return true/false
      */
     public Boolean visibleTextInBlock(){
+        logger.info("Проверяем что элемент textInBlock есть на странице.");
         return waitVisibilityOfElement(textInBlock, sec);
     }
 
@@ -234,7 +270,17 @@ public class MenuPage extends Base{
      * @return текст элемента.
      */
     public String getTextInBlock(){
+        logger.info("Возвращаем текс элемента textInBlock.");
         return textInBlock.getText();
+    }
+
+
+    /**
+     * Кликаем по elements
+     */
+    public void clickElements(){
+        logger.info("Кликаем по блоку Elements");
+        click(elementsBlock);
     }
 
 

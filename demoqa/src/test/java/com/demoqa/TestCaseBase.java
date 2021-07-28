@@ -119,4 +119,9 @@ public class TestCaseBase {
             e.printStackTrace();
         }
     }
+
+    protected void goTo(String url){
+        getDriver().navigate().to(url);
+        logger.info(String.format("Перешли на страницу - %s", url));
+    }
 }

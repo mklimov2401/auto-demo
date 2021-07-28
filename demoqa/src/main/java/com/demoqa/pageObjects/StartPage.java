@@ -2,11 +2,16 @@ package com.demoqa.pageObjects;
 
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class StartPage extends Base{
+    /*
+    Переменная логгирования.
+     */
+    protected static final Logger logger = Logger.getLogger(StartPage.class);
 
     /*
     Переменная основной конфигурации.
@@ -44,6 +49,7 @@ public class StartPage extends Base{
      * @return true/false
      */
     public Boolean checkElements(){
+        logger.info("Проверяем что элемент elements есть на странице.");
         return waitVisibilityOfElement(elements, sec);
     }
 
@@ -53,6 +59,7 @@ public class StartPage extends Base{
      * @return true/false
      */
     public Boolean checkForms(){
+        logger.info("Проверяем что элемент forms есть на странице.");
         return waitVisibilityOfElement(forms, sec);
     }
 
@@ -62,6 +69,7 @@ public class StartPage extends Base{
      * @return true/false
      */
     public Boolean checkAlerts(){
+        logger.info("Проверяем что элемент alerts есть на странице.");
         return waitVisibilityOfElement(alerts, sec);
     }
 
@@ -70,6 +78,7 @@ public class StartPage extends Base{
      * @return true/false
      */
     public Boolean checkWidgets(){
+        logger.info("Проверяем что элемент widgets есть на странице.");
         return waitVisibilityOfElement(widgets, sec);
     }
 
@@ -78,6 +87,7 @@ public class StartPage extends Base{
      * @return true/false
      */
     public Boolean checkInteractions(){
+        logger.info("Проверяем что элемент interactions есть на странице.");
         return waitVisibilityOfElement(interactions, sec);
     }
     /**
@@ -85,6 +95,7 @@ public class StartPage extends Base{
      * @return true/false
      */
     public Boolean checkBook(){
+        logger.info("Проверяем что элемент book есть на странице.");
         return waitVisibilityOfElement(book, sec);
     }
 }

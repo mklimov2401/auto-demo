@@ -27,5 +27,15 @@ public class BasicTest extends Base {
         checkingOtherBlocks();
     }
 
+    /**
+     * ТК3: Переходы по сайту
+     */
+    @Test
+    public void siteNavigation() {
+        navigationOnSite();
+    }
+
+
+
 
 }

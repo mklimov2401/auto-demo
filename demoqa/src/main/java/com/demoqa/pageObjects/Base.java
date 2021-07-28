@@ -2,6 +2,7 @@ package com.demoqa.pageObjects;
 
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -75,5 +76,11 @@ public class Base {
      */
     public Boolean checkText(WebElement webElement, String text){
         return webElement.getText().equalsIgnoreCase(text);
+    }
+
+    public void click(WebElement element){
+        waitVisibilityOfElement(element, sec);
+        element.click();
+
     }
 }
