@@ -24,14 +24,14 @@ public class Base extends TestCaseBase {
      * Проверка стартовой страницы.
      */
     public void checkingDisplayBlocks(){
-        StartPage startPage = new StartPage(getDriver());
+        StartPage start = new StartPage(getDriver());
         logger.info("Проверяем существование блоков на главной странице.");
-        Assert.assertTrue(startPage.checkElements());
-        Assert.assertTrue(startPage.checkAlerts());
-        Assert.assertTrue(startPage.checkBook());
-        Assert.assertTrue(startPage.checkForms());
-        Assert.assertTrue(startPage.checkWidgets());
-        Assert.assertTrue(startPage.checkInteractions());
+        Assert.assertTrue(start.checkElements());
+        Assert.assertTrue(start.checkAlerts());
+        Assert.assertTrue(start.checkBook());
+        Assert.assertTrue(start.checkForms());
+        Assert.assertTrue(start.checkWidgets());
+        Assert.assertTrue(start.checkInteractions());
         logger.info("Блоки на главной странице.");
 
     }
@@ -40,31 +40,31 @@ public class Base extends TestCaseBase {
      * Проверяем наличие блоков в меню.
      */
     protected void checkingOtherBlocks() {
-        MenuPage menuPage = new MenuPage(getDriver());
+        MenuPage menu = new MenuPage(getDriver());
         logger.info("Проверяем наличие закрытых блоков в меню.");
-        Assert.assertTrue(menuPage.visibleElements());
-        Assert.assertTrue(menuPage.visibleForms());
-        Assert.assertTrue(menuPage.visibleAlerts());
-        Assert.assertTrue(menuPage.visibleWidgets());
-        Assert.assertTrue(menuPage.visibleInteractions());
-        Assert.assertTrue(menuPage.visibleBook());
+        Assert.assertTrue(menu.visibleElements());
+        Assert.assertTrue(menu.visibleForms());
+        Assert.assertTrue(menu.visibleAlerts());
+        Assert.assertTrue(menu.visibleWidgets());
+        Assert.assertTrue(menu.visibleInteractions());
+        Assert.assertTrue(menu.visibleBook());
     }
 
     /**
      * Проверка элементов в раскрытом блоке Elements.
      */
     protected void checkingBlocksElements() {
-        MenuPage menuPage = new MenuPage(getDriver());
-        Assert.assertTrue(menuPage.visibleElementListShow());
-        Assert.assertTrue(menuPage.visibleTextBox());
-        Assert.assertTrue(menuPage.visibleCheckBox());
-        Assert.assertTrue(menuPage.visibleRadioButton());
-        Assert.assertTrue(menuPage.visibleWebTables());
-        Assert.assertTrue(menuPage.visibleButtons());
-        Assert.assertTrue(menuPage.visibleLinks());
-        Assert.assertTrue(menuPage.visibleBrokenLinksImages());
-        Assert.assertTrue(menuPage.visibleUploadAndDownload());
-        Assert.assertTrue(menuPage.visibleDynamicProperties());
+        MenuPage menu = new MenuPage(getDriver());
+        Assert.assertTrue(menu.visibleElementListShow());
+        Assert.assertTrue(menu.visibleTextBox());
+        Assert.assertTrue(menu.visibleCheckBox());
+        Assert.assertTrue(menu.visibleRadioButton());
+        Assert.assertTrue(menu.visibleWebTables());
+        Assert.assertTrue(menu.visibleButtons());
+        Assert.assertTrue(menu.visibleLinks());
+        Assert.assertTrue(menu.visibleBrokenLinksImages());
+        Assert.assertTrue(menu.visibleUploadAndDownload());
+        Assert.assertTrue(menu.visibleDynamicProperties());
 
 
     }
@@ -73,23 +73,23 @@ public class Base extends TestCaseBase {
      * Перешли в блок Elements.
      */
     protected void openBlockElements() {
+        MenuPage menu = new MenuPage(getDriver());
         goTo(getConfig().hostname() + "/elements");
-        MenuPage menuPage = new MenuPage(getDriver());
-        Assert.assertTrue(menuPage.visibleHeader());
-        Assert.assertEquals(menuPage.getHeaderText(),"Elements");
-        Assert.assertTrue(menuPage.visibleTextInBlock());
-        Assert.assertEquals(menuPage.getTextInBlock(),"Please select an item from left to start practice.");
+        Assert.assertTrue(menu.visibleHeader());
+        Assert.assertEquals(menu.getHeaderText(),"Elements");
+        Assert.assertTrue(menu.visibleTextInBlock());
+        Assert.assertEquals(menu.getTextInBlock(),"Please select an item from left to start practice.");
     }
 
     /**
      * Прокликивание сайта
      */
     protected void navigationOnSite() {
+        BannerPage banner = new BannerPage(getDriver());
+        MenuPage menu = new MenuPage(getDriver());
         goTo(getConfig().hostname());
-        BannerPage bannerPage = new BannerPage(getDriver());
-        bannerPage.clickCloseBanner();
-        MenuPage menuPage = new MenuPage(getDriver());
-        menuPage.clickElements();
+        banner.clickCloseBanner();
+        menu.clickElements();
         /*logger.info("Проверяем заголовок блока Elements");
         Assert.assertEquals(menuPage.getHeaderText(),"Elements");
         goTo(getConfig().hostname() + "/text-box");
