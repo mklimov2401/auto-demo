@@ -3,11 +3,14 @@ package com.demoqa.pageObjects;
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.FindBy;
 
-public class MenuPage extends Base{/*
+public class MenuPage extends Base{
+    /*
     Переменная логгирования.
      */
     protected static final Logger logger = Logger.getLogger(MenuPage.class);
@@ -58,8 +61,12 @@ public class MenuPage extends Base{/*
     @FindBy(xpath = ".//span[@class='text' and text() = 'Dynamic Properties']")
     private WebElement dynamicProperties;
 
+    @FindBy(xpath = ".//span[@class='text' and text() = 'Practice Form']")
+    private WebElement practiceForm;
+
     @FindBy(xpath = ".//div[@class='element-list collapse show']")
     private WebElement elementListShow;
+
 
     @FindBy(xpath = ".//div[@class='header-text' and text()='Elements']")
     private WebElement elements;
@@ -146,6 +153,14 @@ public class MenuPage extends Base{/*
     public Boolean visibleTextBox(){
         logger.info("Проверяем что элемент textBox есть на странице.");
         return waitToBeClickable(textBox);
+    }
+    /**
+     * Проверяем что раздел Elements закрыт.
+     * @return true/false
+     */
+    public Boolean visibleTextBoxFalse(){
+        logger.info("Проверяем что раздел Elements закрыт.");
+        return waitToBeClickable(textBox, 0);
     }
 
     /**
@@ -243,17 +258,99 @@ public class MenuPage extends Base{/*
      * @return текст элемента.
      */
     public String getHeaderText(){
-        logger.info("Возвращаем текс элемента header.");
+        logger.info("Возвращаем текст элемента header.");
         return header.getText();
     }
+
 
     /**
      * Возвращаем текст элемента textBox.
      * @return текст элемента.
      */
     public String getTextBoxText(){
-        logger.info("Возвращаем текс элемента textBox.");
+        logger.info("Возвращаем текст элемента textBox.");
         return textBox.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента checkBox.
+     * @return текст элемента.
+     */
+    public String getCheckBoxText(){
+        logger.info("Возвращаем текст элемента checkBox.");
+        return checkBox.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента radioButton.
+     * @return текст элемента.
+     */
+    public String getRadioButtonText(){
+        logger.info("Возвращаем текст элемента radioButton.");
+        return radioButton.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента webTables.
+     * @return текст элемента.
+     */
+    public String getWebTablesText(){
+        logger.info("Возвращаем текст элемента webTables.");
+        return webTables.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента buttons.
+     * @return текст элемента.
+     */
+    public String getButtonsText(){
+        logger.info("Возвращаем текст элемента buttons.");
+        return buttons.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента links.
+     * @return текст элемента.
+     */
+    public String getLinksText(){
+        logger.info("Возвращаем текст элемента links.");
+        return links.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента brokenLinksImages.
+     * @return текст элемента.
+     */
+    public String getBrokenLinksImagesText(){
+        logger.info("Возвращаем текст элемента brokenLinksImages.");
+        return brokenLinksImages.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента uploadAndDownload.
+     * @return текст элемента.
+     */
+    public String getUploadDownloadText(){
+        logger.info("Возвращаем текст элемента uploadAndDownload.");
+        return uploadAndDownload.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента dynamicProperties.
+     * @return текст элемента.
+     */
+    public String getDynamicPropertiesText(){
+        logger.info("Возвращаем текст элемента dynamicProperties.");
+        return dynamicProperties.getText();
+    }
+
+    /**
+     * Возвращаем текст элемента practiceForm.
+     * @return текст элемента.
+     */
+    public String getPracticeFormText(){
+        logger.info("Возвращаем текст элемента practiceForm.");
+        return practiceForm.getText();
     }
 
     /**
@@ -270,8 +367,17 @@ public class MenuPage extends Base{/*
      * @return текст элемента.
      */
     public String getTextInBlock(){
-        logger.info("Возвращаем текс элемента textInBlock.");
+        logger.info("Возвращаем текст элемента textInBlock.");
         return textInBlock.getText();
+    }
+
+
+    /**
+     * Кликаем по Forms
+     */
+    public void clickForms(){
+        logger.info("Кликаем по блоку Forms");
+        click(forms);
     }
 
 
@@ -281,6 +387,102 @@ public class MenuPage extends Base{/*
     public void clickElements(){
         logger.info("Кликаем по блоку Elements");
         click(elementsBlock);
+    }
+
+    /**
+     * Кликаем по Text Box
+     */
+    public void clickTextBox(){
+        logger.info("Кликаем по разделу Text Box");
+        click(textBox);
+    }
+
+    /**
+     * Кликаем по Check Box
+     */
+    public void clickCheckBox(){
+        logger.info("Кликаем по разделу Check Box");
+        click(checkBox);
+    }
+
+    /**
+     * Кликаем по Radio Button
+     */
+    public void clickRadioButton(){
+        logger.info("Кликаем по разделу Radio Button");
+        click(radioButton);
+    }
+
+    /**
+     * Кликаем по webTables
+     */
+    public void clickWebTables(){
+        logger.info("Кликаем по разделу web Tables");
+        click(webTables);
+    }
+
+    /**
+     * Кликаем по webTables
+     */
+    public void scrollToWebTables(){
+        logger.info("Прокручиваем страницу к разделу web Tables");
+        scrollToElement(webTables);
+    }
+
+    /**
+     * Кликаем по Upload And Download
+     */
+    public void scrollToUploadAndDownload(){
+        logger.info("Прокручиваем страницу к разделу Upload And Download");
+        scrollToElement(uploadAndDownload);
+    }
+
+    /**
+     * Кликаем по buttons
+     */
+    public void clickButtons(){
+        logger.info("Кликаем по разделу buttons");
+        click(buttons);
+    }
+
+    /**
+     * Кликаем по Links
+     */
+    public void clickLinks(){
+        logger.info("Кликаем по разделу Links");
+        click(links);
+    }
+
+    /**
+     * Кликаем по Broken Links - Images
+     */
+    public void clickBrokenLinksImages(){
+        logger.info("Кликаем по разделу Broken Links - Images");
+        click(brokenLinksImages);
+    }
+
+    /**
+     * Кликаем по Upload and Download
+     */
+    public void clickUploadDownload(){
+        logger.info("Кликаем по разделу Upload and Download");
+        click(uploadAndDownload);
+    }
+
+    /**
+     * Кликаем по Dynamic Properties
+     */
+    public void clickDynamicProperties(){
+        logger.info("Кликаем по разделу Dynamic Properties");
+        click(dynamicProperties);
+    }
+
+    /**
+     * Кликаем по Practice Form
+     */
+    public void clickPracticeForm(){
+        logger.info("Кликаем по разделу Practice Form");
+        click(practiceForm);
     }
 
 

@@ -16,6 +16,14 @@ public class Assert {
     }
 
     /**
+     * Проверяем что булевое значение false.
+     * @param value
+     */
+    public static void assertFalse(Boolean value){
+        assertThat(value).isFalse();
+    }
+
+    /**
      * Проверяем равно ли actual и expected.
      * @param actual актуальное значение.
      * @param expected ожидаемое значение.

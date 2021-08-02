@@ -82,19 +82,47 @@ public class Base extends TestCaseBase {
     }
 
     /**
-     * Прокликивание сайта
+     * Прокликивание сайта. Блок Elements.
      */
-    protected void navigationOnSite() {
+    protected void navigationOnBlockElements() {
         BannerPage banner = new BannerPage(getDriver());
         MenuPage menu = new MenuPage(getDriver());
         goTo(getConfig().hostname());
         banner.clickCloseBanner();
         menu.clickElements();
-        /*logger.info("Проверяем заголовок блока Elements");
-        Assert.assertEquals(menuPage.getHeaderText(),"Elements");
-        goTo(getConfig().hostname() + "/text-box");
-        logger.info(String.format("Перешли в блок Elements - %s", getConfig().hostname() + "/text-box"));
-        Assert.assertEquals(menuPage.getTextBoxText(),"Text Box");*/
+        Assert.assertEquals(menu.getHeaderText(),"Elements");
+        menu.clickTextBox();
+        Assert.assertEquals(menu.getTextBoxText(),"Text Box");
+        menu.clickCheckBox();
+        Assert.assertEquals(menu.getCheckBoxText(),"Check Box");
+        menu.clickRadioButton();
+        Assert.assertEquals(menu.getRadioButtonText(),"Radio Button");
+        menu.scrollToWebTables();
+        menu.clickWebTables();
+        Assert.assertEquals(menu.getWebTablesText(),"Web Tables");
+        menu.clickButtons();
+        Assert.assertEquals(menu.getButtonsText(),"Buttons");
+        menu.clickLinks();
+        Assert.assertEquals(menu.getLinksText(),"Links");
+        menu.clickBrokenLinksImages();
+        Assert.assertEquals(menu.getBrokenLinksImagesText(),"Broken Links - Images");
+        menu.scrollToUploadAndDownload();
+        menu.clickUploadDownload();
+        Assert.assertEquals(menu.getUploadDownloadText(),"Upload and Download");
+        menu.clickDynamicProperties();
+        Assert.assertEquals(menu.getDynamicPropertiesText(),"Dynamic Properties");
 
+    }
+
+    /**
+     * Прокликивание сайта. Блок Forms.
+     */
+    protected void navigationOnBlockForms() {
+        MenuPage menu = new MenuPage(getDriver());
+        menu.clickForms();
+        Assert.assertTrue(menu.visibleElementListShow());
+        Assert.assertFalse(menu.visibleTextBoxFalse());
+        menu.clickPracticeForm();
+        Assert.assertEquals(menu.getPracticeFormText(),"Practice Form");
     }
 }

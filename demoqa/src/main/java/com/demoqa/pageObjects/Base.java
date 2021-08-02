@@ -3,6 +3,7 @@ package com.demoqa.pageObjects;
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -69,6 +70,23 @@ public class Base {
         return false;
     }
 
+    /**
+     * Ждём пока элемент будет кликабелен.
+     * Возвращаем Boolean.
+     *
+     * @param element
+     * @return
+     */
+    protected Boolean waitToBeClickable(final WebElement element, int sec) {
+        WebDriverWait wait = new WebDriverWait(driver, sec);
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
 
     /**
      * Проверка что текст в элементе совпадает с переданным текстом.
@@ -82,5 +100,26 @@ public class Base {
         waitVisibilityOfElement(element, sec);
         element.click();
 
+    }
+
+    /**
+     * Метод для задержки в секундах.
+     * @param sec
+     */
+    public void sleep(int sec){
+        try {
+            Thread.sleep(sec * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Метод для прокрутки до указанного элемента.
+     * @param webElement до которого будет прокрутка страницы.
+     */
+    public void scrollToElement(WebElement webElement){
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();"
+                ,webElement);
     }
 }

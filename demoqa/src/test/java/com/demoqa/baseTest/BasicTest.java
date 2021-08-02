@@ -32,7 +32,8 @@ public class BasicTest extends Base {
      */
     @Test
     public void siteNavigation() {
-        navigationOnSite();
+        navigationOnBlockElements();
+        navigationOnBlockForms();
     }
 
 
