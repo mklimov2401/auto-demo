@@ -34,6 +34,7 @@ public class BasicTest extends Base {
     public void siteNavigation() {
         navigationOnBlockElements();
         navigationOnBlockForms();
+        navigationOnBlockAlerts();
     }
 
 

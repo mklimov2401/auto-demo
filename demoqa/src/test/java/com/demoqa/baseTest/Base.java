@@ -104,6 +104,7 @@ public class Base extends TestCaseBase {
         Assert.assertEquals(menu.getButtonsText(),"Buttons");
         menu.clickLinks();
         Assert.assertEquals(menu.getLinksText(),"Links");
+        menu.scrollToWebTables();
         menu.clickBrokenLinksImages();
         Assert.assertEquals(menu.getBrokenLinksImagesText(),"Broken Links - Images");
         menu.scrollToUploadAndDownload();
@@ -124,5 +125,27 @@ public class Base extends TestCaseBase {
         Assert.assertFalse(menu.visibleTextBoxFalse());
         menu.clickPracticeForm();
         Assert.assertEquals(menu.getPracticeFormText(),"Practice Form");
+    }
+
+    /**
+     * Прокликивание сайта. Блок Forms.
+     */
+    protected void navigationOnBlockAlerts() {
+        MenuPage menu = new MenuPage(getDriver());
+        menu.clickAlerts();
+        Assert.assertTrue(menu.visibleElementListShow());
+        Assert.assertFalse(menu.visibleTextBoxFalse());
+        menu.clickBrowserWindows();
+        Assert.assertEquals(menu.getBrowserWindowsText(),"Browser Windows");
+        menu.scrollToBrowserWindows();
+        menu.clickAlerts2();
+        Assert.assertEquals(menu.getAlerts2Text(),"Alerts");
+        menu.scrollToBrowserWindows();
+        menu.clickFrames();
+        Assert.assertEquals(menu.getFramesText(),"Frames");
+        menu.clickNestedFrames();
+        Assert.assertEquals(menu.getNestedFramesText(),"Nested Frames");
+        menu.clickModalDialogs();
+        Assert.assertEquals(menu.getModalDialogsText(),"Modal Dialogs");
     }
 }
