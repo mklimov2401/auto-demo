@@ -97,17 +97,14 @@ public class Base extends TestCaseBase {
         Assert.assertEquals(menu.getCheckBoxText(),"Check Box");
         menu.clickRadioButton();
         Assert.assertEquals(menu.getRadioButtonText(),"Radio Button");
-        menu.scrollToWebTables();
         menu.clickWebTables();
         Assert.assertEquals(menu.getWebTablesText(),"Web Tables");
         menu.clickButtons();
         Assert.assertEquals(menu.getButtonsText(),"Buttons");
         menu.clickLinks();
         Assert.assertEquals(menu.getLinksText(),"Links");
-        menu.scrollToWebTables();
         menu.clickBrokenLinksImages();
         Assert.assertEquals(menu.getBrokenLinksImagesText(),"Broken Links - Images");
-        menu.scrollToUploadAndDownload();
         menu.clickUploadDownload();
         Assert.assertEquals(menu.getUploadDownloadText(),"Upload and Download");
         menu.clickDynamicProperties();
@@ -128,7 +125,7 @@ public class Base extends TestCaseBase {
     }
 
     /**
-     * Прокликивание сайта. Блок Forms.
+     * Прокликивание сайта. Блок Alerts.
      */
     protected void navigationOnBlockAlerts() {
         MenuPage menu = new MenuPage(getDriver());
@@ -137,15 +134,41 @@ public class Base extends TestCaseBase {
         Assert.assertFalse(menu.visibleTextBoxFalse());
         menu.clickBrowserWindows();
         Assert.assertEquals(menu.getBrowserWindowsText(),"Browser Windows");
-        menu.scrollToBrowserWindows();
         menu.clickAlerts2();
         Assert.assertEquals(menu.getAlerts2Text(),"Alerts");
-        menu.scrollToBrowserWindows();
         menu.clickFrames();
         Assert.assertEquals(menu.getFramesText(),"Frames");
         menu.clickNestedFrames();
         Assert.assertEquals(menu.getNestedFramesText(),"Nested Frames");
         menu.clickModalDialogs();
         Assert.assertEquals(menu.getModalDialogsText(),"Modal Dialogs");
+    }
+
+    /**
+     * Прокликивание сайта. Блок Widgets.
+     */
+    protected void navigationOnBlockWidgets() {
+        MenuPage menu = new MenuPage(getDriver());
+        menu.clickWidgets();
+        Assert.assertTrue(menu.visibleElementListShow());
+        Assert.assertFalse(menu.visibleTextBoxFalse());
+        menu.clickAccordian();
+        Assert.assertEquals(menu.getAccordianText(),"Accordian");
+        menu.clickAutoComplete();
+        Assert.assertEquals(menu.getAutoCompleteText(),"Auto Complete");
+        menu.clickDatePicker();
+        Assert.assertEquals(menu.getDatePickerText(),"Date Picker");
+        menu.clickSlider();
+        Assert.assertEquals(menu.getSliderText(),"Slider");
+        menu.clickProgressBar();
+        Assert.assertEquals(menu.getProgressBarText(),"Progress Bar");
+        menu.clickTabs();
+        Assert.assertEquals(menu.getTabsText(),"Tabs");
+        menu.clickToolTips();
+        Assert.assertEquals(menu.getToolTipsText(),"Tool Tips");
+        menu.clickMenu();
+        Assert.assertEquals(menu.getMenuText(),"Menu");
+        menu.clickSelectMenu();
+        Assert.assertEquals(menu.getSelectMenuText(),"Select Menu");
     }
 }

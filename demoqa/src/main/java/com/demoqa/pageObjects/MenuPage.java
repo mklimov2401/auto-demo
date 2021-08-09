@@ -3,10 +3,8 @@ package com.demoqa.pageObjects;
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.FindBy;
 
 public class MenuPage extends Base{
@@ -654,7 +652,7 @@ public class MenuPage extends Base{
      */
     public void clickForms(){
         logger.info("Кликаем по блоку Forms");
-        click(forms);
+        clickWithScroll(forms);
     }
 
     /**
@@ -662,7 +660,15 @@ public class MenuPage extends Base{
      */
     public void clickAlerts(){
         logger.info("Кликаем по блоку Alerts, Frame & Windows");
-        click(alerts);
+        clickWithScroll(alerts);
+    }
+
+    /**
+     * Кликаем по Widgets
+     */
+    public void clickWidgets(){
+        logger.info("Кликаем по блоку Widgets");
+        clickWithScroll(widgets);
     }
 
 
@@ -671,7 +677,7 @@ public class MenuPage extends Base{
      */
     public void clickElements(){
         logger.info("Кликаем по блоку Elements");
-        click(elementsBlock);
+        clickWithScroll(elementsBlock);
     }
 
     /**
@@ -679,7 +685,7 @@ public class MenuPage extends Base{
      */
     public void clickTextBox(){
         logger.info("Кликаем по разделу Text Box");
-        click(textBox);
+        clickWithScroll(textBox);
     }
 
     /**
@@ -687,7 +693,7 @@ public class MenuPage extends Base{
      */
     public void clickCheckBox(){
         logger.info("Кликаем по разделу Check Box");
-        click(checkBox);
+        clickWithScroll(checkBox);
     }
 
     /**
@@ -695,7 +701,7 @@ public class MenuPage extends Base{
      */
     public void clickRadioButton(){
         logger.info("Кликаем по разделу Radio Button");
-        click(radioButton);
+        clickWithScroll(radioButton);
     }
 
     /**
@@ -703,39 +709,17 @@ public class MenuPage extends Base{
      */
     public void clickWebTables(){
         logger.info("Кликаем по разделу web Tables");
-        click(webTables);
+        clickWithScroll(webTables);
     }
 
-    /**
-     * Кликаем по webTables
-     */
-    public void scrollToWebTables(){
-        logger.info("Прокручиваем страницу к разделу web Tables");
-        scrollToElement(webTables);
-    }
 
-    /**
-     * Кликаем по Upload And Download
-     */
-    public void scrollToBrowserWindows(){
-        logger.info("Прокручиваем страницу к разделу browserWindows");
-        scrollToElement(browserWindows);
-    }
-
-    /**
-     * Кликаем по Upload And Download
-     */
-    public void scrollToUploadAndDownload(){
-        logger.info("Прокручиваем страницу к разделу Upload And Download");
-        scrollToElement(uploadAndDownload);
-    }
 
     /**
      * Кликаем по buttons
      */
     public void clickButtons(){
         logger.info("Кликаем по разделу buttons");
-        click(buttons);
+        clickWithScroll(buttons);
     }
 
     /**
@@ -743,7 +727,7 @@ public class MenuPage extends Base{
      */
     public void clickLinks(){
         logger.info("Кликаем по разделу Links");
-        click(links);
+        clickWithScroll(links);
     }
 
     /**
@@ -751,7 +735,7 @@ public class MenuPage extends Base{
      */
     public void clickBrokenLinksImages(){
         logger.info("Кликаем по разделу Broken Links - Images");
-        click(brokenLinksImages);
+        clickWithScroll(brokenLinksImages);
     }
 
     /**
@@ -759,7 +743,7 @@ public class MenuPage extends Base{
      */
     public void clickUploadDownload(){
         logger.info("Кликаем по разделу Upload and Download");
-        click(uploadAndDownload);
+        clickWithScroll(uploadAndDownload);
     }
 
     /**
@@ -767,7 +751,7 @@ public class MenuPage extends Base{
      */
     public void clickDynamicProperties(){
         logger.info("Кликаем по разделу Dynamic Properties");
-        click(dynamicProperties);
+        clickWithScroll(dynamicProperties);
     }
 
     /**
@@ -775,7 +759,7 @@ public class MenuPage extends Base{
      */
     public void clickPracticeForm(){
         logger.info("Кликаем по разделу Practice Form");
-        click(practiceForm);
+        clickWithScroll(practiceForm);
     }
 
     /**
@@ -783,7 +767,7 @@ public class MenuPage extends Base{
      */
     public void clickBrowserWindows(){
         logger.info("Кликаем по разделу Browser Windows");
-        click(browserWindows);
+        clickWithScroll(browserWindows);
     }
 
     /**
@@ -791,7 +775,7 @@ public class MenuPage extends Base{
      */
     public void clickAlerts2(){
         logger.info("Кликаем по разделу Alerts");
-        click(alerts2);
+        clickWithScroll(alerts2);
     }
 
     /**
@@ -799,7 +783,7 @@ public class MenuPage extends Base{
      */
     public void clickFrames(){
         logger.info("Кликаем по разделу Frames");
-        click(frames);
+        clickWithScroll(frames);
     }
 
     /**
@@ -807,7 +791,7 @@ public class MenuPage extends Base{
      */
     public void clickNestedFrames(){
         logger.info("Кликаем по разделу Nested Frames");
-        click(nestedFrames);
+        clickWithScroll(nestedFrames);
     }
 
     /**
@@ -815,7 +799,7 @@ public class MenuPage extends Base{
      */
     public void clickModalDialogs(){
         logger.info("Кликаем по разделу Modal Dialogs");
-        click(modalDialogs);
+        clickWithScroll(modalDialogs);
     }
 
     /**
@@ -823,7 +807,7 @@ public class MenuPage extends Base{
      */
     public void clickAccordian(){
         logger.info("Кликаем по разделу Accordian");
-        click(accordian);
+        clickWithScroll(accordian);
     }
 
     /**
@@ -831,7 +815,7 @@ public class MenuPage extends Base{
      */
     public void clickAutoComplete(){
         logger.info("Кликаем по разделу Auto Complete");
-        click(autoComplete);
+        clickWithScroll(autoComplete);
     }
 
     /**
@@ -839,7 +823,7 @@ public class MenuPage extends Base{
      */
     public void clickDatePicker(){
         logger.info("Кликаем по разделу Date Picker");
-        click(datePicker);
+        clickWithScroll(datePicker);
     }
 
     /**
@@ -847,7 +831,7 @@ public class MenuPage extends Base{
      */
     public void clickSlider(){
         logger.info("Кликаем по разделу Slider");
-        click(slider);
+        clickWithScroll(slider);
     }
 
     /**
@@ -855,7 +839,7 @@ public class MenuPage extends Base{
      */
     public void clickProgressBar(){
         logger.info("Кликаем по разделу Progress Bar");
-        click(progressBar);
+        clickWithScroll(progressBar);
     }
 
     /**
@@ -863,7 +847,7 @@ public class MenuPage extends Base{
      */
     public void clickTabs(){
         logger.info("Кликаем по разделу Tabs");
-        click(tabs);
+        clickWithScroll(tabs);
     }
 
     /**
@@ -871,7 +855,7 @@ public class MenuPage extends Base{
      */
     public void clickToolTips(){
         logger.info("Кликаем по разделу Tool Tips");
-        click(toolTips);
+        clickWithScroll(toolTips);
     }
 
     /**
@@ -879,7 +863,7 @@ public class MenuPage extends Base{
      */
     public void clickMenu(){
         logger.info("Кликаем по разделу Menu");
-        click(menu);
+        clickWithScroll(menu);
     }
 
     /**
@@ -887,7 +871,7 @@ public class MenuPage extends Base{
      */
     public void clickSelectMenu(){
         logger.info("Кликаем по разделу Select Menu");
-        click(selectMenu);
+        clickWithScroll(selectMenu);
     }
 
     /**
@@ -895,7 +879,7 @@ public class MenuPage extends Base{
      */
     public void clickSortable(){
         logger.info("Кликаем по разделу Sortable");
-        click(sortable);
+        clickWithScroll(sortable);
     }
 
     /**
@@ -903,7 +887,7 @@ public class MenuPage extends Base{
      */
     public void clickSelectable(){
         logger.info("Кликаем по разделу Selectable");
-        click(selectable);
+        clickWithScroll(selectable);
     }
 
     /**
@@ -911,7 +895,7 @@ public class MenuPage extends Base{
      */
     public void clickResizable(){
         logger.info("Кликаем по разделу Resizable");
-        click(resizable);
+        clickWithScroll(resizable);
     }
 
     /**
@@ -919,7 +903,7 @@ public class MenuPage extends Base{
      */
     public void clickDroppable(){
         logger.info("Кликаем по разделу Droppable");
-        click(droppable);
+        clickWithScroll(droppable);
     }
 
     /**
@@ -927,7 +911,7 @@ public class MenuPage extends Base{
      */
     public void clickDragabble(){
         logger.info("Кликаем по разделу Dragabble");
-        click(dragabble);
+        clickWithScroll(dragabble);
     }
 
     /**
@@ -935,7 +919,7 @@ public class MenuPage extends Base{
      */
     public void clickLogin(){
         logger.info("Кликаем по разделу Login");
-        click(login);
+        clickWithScroll(login);
     }
 
     /**
@@ -943,7 +927,7 @@ public class MenuPage extends Base{
      */
     public void clickBookStore(){
         logger.info("Кликаем по разделу Book Store");
-        click(bookStore);
+        clickWithScroll(bookStore);
     }
 
     /**
@@ -951,7 +935,7 @@ public class MenuPage extends Base{
      */
     public void clickProfile(){
         logger.info("Кликаем по разделу Profile");
-        click(profile);
+        clickWithScroll(profile);
     }
 
     /**
@@ -959,7 +943,7 @@ public class MenuPage extends Base{
      */
     public void clickBookStoreAPI(){
         logger.info("Кликаем по разделу Book Store API");
-        click(bookStoreAPI);
+        clickWithScroll(bookStoreAPI);
     }
 
 

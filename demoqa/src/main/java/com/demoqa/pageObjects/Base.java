@@ -96,6 +96,19 @@ public class Base {
         return webElement.getText().equalsIgnoreCase(text);
     }
 
+    /**
+     * Клик с скролом элемента.
+     * @param element
+     */
+    public void clickWithScroll(WebElement element){
+        scrollWithOffset(element, 0, 0);
+        element.click();
+    }
+
+    /**
+     * Клик.
+     * @param element
+     */
     public void click(WebElement element){
         waitVisibilityOfElement(element, sec);
         element.click();
@@ -121,5 +134,18 @@ public class Base {
     public void scrollToElement(WebElement webElement){
         ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();"
                 ,webElement);
+    }
+
+    /**
+     * Проскроллить страницу с заданным смещением от элемента
+     * @param webElement
+     * @param x
+     * @param y
+     */
+    public void scrollWithOffset(WebElement webElement, int x, int y) {
+        String code = "window.scroll(" + (webElement.getLocation().x + x) + ","
+                + (webElement.getLocation().y + y) + ");";
+        ((JavascriptExecutor)driver).executeScript(code, webElement, x, y);
+
     }
 }
