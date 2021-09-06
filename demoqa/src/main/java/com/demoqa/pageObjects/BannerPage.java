@@ -34,7 +34,7 @@ public class BannerPage extends Base{
      */
     public void clickCloseBanner(){
         logger.info("Закрываем баннер.");
-        clickWithScroll(closeFixBanner);
+        click(closeFixBanner);
     }
 
 }

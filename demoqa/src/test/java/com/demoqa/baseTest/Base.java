@@ -171,4 +171,43 @@ public class Base extends TestCaseBase {
         menu.clickSelectMenu();
         Assert.assertEquals(menu.getSelectMenuText(),"Select Menu");
     }
+
+    /**
+     * Прокликивание сайта. Блок Interactions.
+     */
+    protected void navigationOnBlockInteractions() {
+        MenuPage menu = new MenuPage(getDriver());
+        menu.clickInteractions();
+        Assert.assertTrue(menu.visibleElementListShow());
+        Assert.assertFalse(menu.visibleTextBoxFalse());
+        menu.clickSortable();
+        Assert.assertEquals(menu.getSortableText(),"Sortable");
+        menu.clickSelectable();
+        Assert.assertEquals(menu.getSelectableText(),"Selectable");
+        menu.clickResizable();
+        Assert.assertEquals(menu.getResizableText(),"Resizable");
+        menu.clickDroppable();
+        Assert.assertEquals(menu.getDroppableText(),"Droppable");
+        menu.clickDragabble();
+        Assert.assertEquals(menu.getDragabbleText(),"Dragabble");
+    }
+
+    /**
+     * Прокликивание сайта. Блок Book Store Application.
+     */
+    protected void navigationOnBlockBookStoreApplication() {
+        MenuPage menu = new MenuPage(getDriver());
+        menu.hideFooter();
+        menu.clickBook();
+        Assert.assertTrue(menu.visibleElementListShow());
+        Assert.assertFalse(menu.visibleTextBoxFalse());
+        menu.clickLogin();
+        Assert.assertEquals(menu.getLoginText(),"Login");
+        menu.clickBookStore();
+        Assert.assertEquals(menu.getBookStoreText(),"Book Store");
+        menu.clickProfile();
+        Assert.assertEquals(menu.getProfileText(),"Profile");
+        menu.clickBookStoreAPI();
+        Assert.assertEquals(menu.getBookStoreAPIText(),"Book Store Web API");
+    }
 }

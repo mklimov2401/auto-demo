@@ -2,11 +2,10 @@ package com.demoqa.pageObjects;
 
 import com.demoqa.configurations.GeneralConfig;
 import org.aeonbits.owner.ConfigFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.DefaultElementLocator;
+import org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -105,6 +104,7 @@ public class Base {
         element.click();
     }
 
+
     /**
      * Клик.
      * @param element
@@ -147,5 +147,36 @@ public class Base {
                 + (webElement.getLocation().y + y) + ");";
         ((JavascriptExecutor)driver).executeScript(code, webElement, x, y);
 
+    }
+
+    /**
+     * Добавить элементру атрибут.
+     *
+     * @param element Элемент, которому добавляется атрибут.
+     * @param attr    Имя добавляемого атрибута.
+     * @param value   Значение добавляемого атрибута.
+     */
+    public void setAttributesElement(final WebElement element, final String attr, final String value) {
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript("arguments[0].setAttribute('"
+                    + attr + "', '" + value + "');", element);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Добавить элементру атрибут.
+     *
+     * @param element Элемент, которому добавляется атрибут.
+     * @param css    Имя добавляемого свойства.
+     * @param value   Значение добавляемого атрибута.
+     */
+    public void setCSSProperty(final WebElement element, final String css, final String value) {
+        try {
+            ((JavascriptExecutor) getDriver()).executeScript("document.querySelector('" + element.getTagName()+"').style." + css + "='" + value+ "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

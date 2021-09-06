@@ -65,6 +65,7 @@ public class TestCaseBase {
     @AfterEach
     public void close(){
         takeScreenshot();
+        logger.info("Текущая открытая ссылка " + getDriver().getCurrentUrl());
         if (getDriver() != null) {
             getDriver().quit();
             logger.info("Закрываем браузер");

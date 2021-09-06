@@ -36,6 +36,8 @@ public class BasicTest extends Base {
         navigationOnBlockForms();
         navigationOnBlockAlerts();
         navigationOnBlockWidgets();
+        navigationOnBlockInteractions();
+        navigationOnBlockBookStoreApplication();
     }
 
 

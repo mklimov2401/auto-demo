@@ -41,7 +41,8 @@ public class MenuPage extends Base{
     @FindBy(xpath = ".//span[@class='text' and text() = 'Radio Button']")
     private WebElement radioButton;
 
-    @FindBy(xpath = ".//span[@class='text' and text() = 'Web Tables']")
+    //@FindBy(xpath = ".//span[@class='text' and text() = 'Web Tables']")
+    @FindBy(xpath = "(.//li[@id='item-3'])[1]")
     private WebElement webTables;
 
     @FindBy(xpath = ".//span[@class='text' and text() = 'Buttons']")
@@ -132,6 +133,9 @@ public class MenuPage extends Base{
     @FindBy(xpath = ".//span[@class='text' and text() = 'Book Store API']")
     private WebElement bookStoreAPI;
 
+    @FindBy(xpath = ".//div[@class='markdown']//p")
+    private WebElement bookStoreAPI2;
+
     @FindBy(xpath = ".//div[@class='element-list collapse show']")
     private WebElement elementListShow;
 
@@ -154,8 +158,12 @@ public class MenuPage extends Base{
     @FindBy(xpath = ".//div[@class='header-text' and text()='Interactions']")
     private WebElement interactions;
 
+
     @FindBy(xpath = ".//div[@class='header-text' and text()='Book Store Application']")
     private WebElement book;
+
+    @FindBy(xpath = ".//footer")
+    private WebElement footer;
 
 
     /**
@@ -625,7 +633,7 @@ public class MenuPage extends Base{
      */
     public String getBookStoreAPIText(){
         logger.info("Возвращаем текст элемента bookStoreAPI.");
-        return bookStoreAPI.getText();
+        return bookStoreAPI2.getText();
     }
 
     /**
@@ -669,6 +677,31 @@ public class MenuPage extends Base{
     public void clickWidgets(){
         logger.info("Кликаем по блоку Widgets");
         clickWithScroll(widgets);
+    }
+
+
+    /**
+     * Кликаем по Interactions
+     */
+    public void clickInteractions(){
+        logger.info("Кликаем по блоку Interactions");
+        clickWithScroll(interactions);
+    }
+
+    /**
+     * Кликаем по Interactions
+     */
+    public void clickBook(){
+        logger.info("Кликаем по блоку Book Store");
+        clickWithScroll(book);
+    }
+
+    /**
+     * Скрываем футер
+     */
+    public void hideFooter(){
+        logger.info("Скрываем футер");
+        setCSSProperty(footer, "display", "none");
     }
 
 
